@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>	
+<title>Bookfinder-Create an Account</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="Registration.css">
+
+<style>
+input{
+padding: 10px 10px;
+margin: 20px 2px;
+border: none;
+border-bottom: 3px solid black;
+font-family: sans-serif;
+border-radius: 10px;
+
+}
+input:focus{
+background-color: #C0C0C0;
+}
+input[type=text],[type=password]{
+	width: 300px;
+	margin-bottom: 10px;
+}
+</style>
+
+<script type="text/javascript" src="reg-validation.js"></script>
+
+</head>
+
+<body style="background-color: #f0f0f0;">
+	
+    <div id="box1" style="background-color: #232f3e;height: 120px;width: 100%;margin-top: -32px;">
+
+		<div class="logo" style="width: 380px;float: left;height: 100px;">
+		       <a href="MainActivity.html"><img src="round.png" alt="Logo">
+			   </a>
+		</div>
+
+		<div id="discription" style="position: relative;width: 900px; margin-right: 0px;margin-top: ">
+          <h1 style="margin-top: px;color: white;font-size: 60px;margin-left: 0px;margin-bottom: 0px;">BOOK FINDER</h1>	
+          <p style="color: white;font-size: 20px;margin-top: 0px;margin-left: 0px;text-align: right;">An Online bookstore for buying and selling</p>		
+        </div>
+
+		<div id="nav-right" style="float: right;position: relative;margin-top:-105px;margin-right: 20px;  " >
+
+			<div id="login" style="margin-right: 30px;">
+				  <a href="login.php" style="color: white">
+					<h3 style="color: white;">Login</h3>
+				  </a>
+			
+			</div>
+			
+            <div id="Signup" style="margin-right: 30px;">
+					<a href="Registration.html" style="color: white;"> 
+				    <h3 style="margin-top: 5px;margin-right: 20px;color: white;">Signup</h3>
+			        </a>
+				
+			</div>
+			
+		</div>	
+    </div>	
+
+
+    <div style="width: 400px;padding: 20px;text-align: center;margin-left: 420px;background-color: #DCDCDC;margin-top: 20px;">
+
+		    
+		    	<p style="font-family: sans-serif;font-size: 14.5px;margin-left: 0px;">By registering,you get access to bookfinder account<br> where you can:<br> <ul style="text-align: left;"> <li>Buy books </li><li>Sell used books</li><LI>Used shared book material</LI></ul> </p>
+		    	<hr>
+		    	<h2 style="font-size: 25px;margin-top: 0px;">Register here:</h1>
+
+
+            <form action="insert.php" method="post" name="Regform" onsubmit="return checkform()" style="margin-top: 0px;" >
+
+	           <input type="text" name="firstname" placeholder="FirstName" ><br>
+
+               <input type="text" name="lastname" placeholder="LastName"><br>
+	
+	           <input type="text" name="number" placeholder="Phone No." ><br>
+       
+               <input type="text" name="location" placeholder="Location" ><br>	
+	
+	           <input type="text" name="email" placeholder="Email"><br>
+	
+               <input type="text" name="username" placeholder="Username" ><br>
+		
+               <input type="password" name="password" placeholder="Password" ><br>
+
+              <input type="radio" name="gender" value="Male" style="margin-left: 0px;"><b style="font-family: sans-serif;font-size: 17px;">Male</b>
+
+              <input type="radio" name="gender" value="Female" style="margin-left: 100px;"><b style="font-family: sans-serif;font-size: 17px;margin-: 0px;">Female</b><br>
+
+	          <input type="submit" value="Submit" style="padding: 8px 18px; margin-top: 15px;margin-right: 10px;">
+
+	           <h3 style="margin-bottom: 5px;">Already have an account?</h3>
+	           <a href="Login.php">Login</a>
+	
+   		    </form> 
+    </div>
+
+    <footer style="background-color: #333;margin-bottom: 0px; margin-left: 0px;margin-right: 0px; width: 100%;height: 100px;">
+ 
+        <div id="copyright" style=" ">
+             	        
+
+             	        <p style="text-align: center;margin-left: 20px;color: white;margin-top: 400px;">&copy BookFinder Pvt.Ltd</p>
+        </div> 
+             
+	    <div id="box5" class="division" style="float: right;margin-top:-45px; ;margin-right: 40px; ">
+
+			    		<h3 style="margin-bottom: 3px;color: white;"><u><b>Find us</b></u></h3>
+
+			                <address style="font-family: sans-serif;margin-top: 3px; color: white;"> 
+			                	Email :Beebakelam@gmail.com<br>
+			                	Phone No: 7358685574<br>
+			                    Address: Kathmandu,Nepal
+			                </address>
+			    		    		    		
+	    </div>
+    </footer>
+     
+</body>
+</html>
+
