@@ -3,10 +3,12 @@
 <head>	
 <title>Bookfinder-Create an Account</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="Registration.css">
-
+<script src="reg-validation.js"></script>
 <style>
 input{
+
 padding: 10px 10px;
 margin: 20px 2px;
 border: none;
@@ -17,86 +19,186 @@ border-radius: 10px;
 }
 input:focus{
 background-color: #C0C0C0;
+outline: none;
 }
 input[type=text],[type=password]{
 	width: 300px;
 	margin-bottom: 10px;
 }
+
+input[type=submit]:hover{
+	background: #808080;;
+	opacity:0.9; 
+}
+.modal {
+    display: none;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 600px; 
+    height: 100%; 
+    overflow: auto; 
+    padding-top: 10px;
+    transition-duration: 5s;
+}
+
+label{
+	cursor: default;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    
+  }
+  .collapse
+  {
+  	padding: 10px;
+  	border-radius: 5px;
+  	border:2px solid grey;
+  	margin-left:530px;
+  	outline: none;
+  	margin-top: -10px;
+  	font-weight: 600;
+  }
+  .collapse:hover{
+  	background: #FF0000;
+  	opacity: 0.9;
+  }
+  .enlarge:hover{
+  	background: #808080;
+  }
+
+  .loginbtn:hover{
+  	color:red;
+  }
+
 </style>
 
 <script type="text/javascript" src="reg-validation.js"></script>
 
 </head>
 
-<body style="background-color: #f0f0f0;">
+<body style="background-color: #f0f0f0;margin: 0px;">
 	
-    <div id="box1" style="background-color: #232f3e;height: 120px;width: 100%;margin-top: -32px;">
+   
+<div id="header" style="position: relative; background-color: #232f3e;height: 120px;width: 100%;margin-top: -40px;">
 
-		<div class="logo" style="width: 380px;float: left;height: 100px;">
-		       <a href="MainActivity.html"><img src="round.png" alt="Logo">
-			   </a>
-		</div>
+    <div id="logo" style=" float: left;width: 395px;margin-left: -15px; ">
+    <a href="MainActivity.html">
 
-		<div id="discription" style="position: relative;width: 900px; margin-right: 0px;margin-top: ">
-          <h1 style="margin-top: px;color: white;font-size: 60px;margin-left: 0px;margin-bottom: 0px;">BOOK FINDER</h1>	
-          <p style="color: white;font-size: 20px;margin-top: 0px;margin-left: 0px;text-align: right;">An Online bookstore for buying and selling</p>		
+            <img src="Bimage/round.png">
+    </a>
+    </div>
+
+    <div id="discription" style="width: 900px; margin-right: 0px;margin-left: 160px;">
+
+        <h1 style="color: white;font-size: 60px;margin-bottom: 0px;">BOOK FINDER</h1>
+        <p style="float:left;color: white;font-size: 24px;margin-top: 0px;margin-left: 170px;text-align: right;">An Online bookstore for buying and selling.</p>
+    </div>
+
+    <div id="nav-right" style="position: relative; float: right;margin-top: -62px;margin-right: 30px;">
+        <div class="nav-button" style="margin-right: 30px;">
+            <a href="login.php" style="color: white" class="link">
+                <h3 style="color: white;font-size: 20px;font-weight: 400;font-family: Aerial,sans-serif;">Login</h3>
+            </a>
         </div>
 
-		<div id="nav-right" style="float: right;position: relative;margin-top:-105px;margin-right: 20px;  " >
+        <div class="nav-button" style="margin-right: 30px;">
+            <a href="Registration.html" style="color: white;" class="link">
+                <h3 style="margin-top: 5px; color: white;font-size: 20px;font-weight: 400;font-family: Aerial,sans-serif">Signup</h3>
+            </a>
+        </div>
+        
+    </div>
 
-			<div id="login" style="margin-right: 30px;">
-				  <a href="login.php" style="color: white">
-					<h3 style="color: white;">Login</h3>
-				  </a>
-			
-			</div>
-			
-            <div id="Signup" style="margin-right: 30px;">
-					<a href="Registration.html" style="color: white;"> 
-				    <h3 style="margin-top: 5px;margin-right: 20px;color: white;">Signup</h3>
-			        </a>
-				
-			</div>
-			
-		</div>	
-    </div>	
+</div>
 
 
-    <div style="width: 400px;padding: 20px;text-align: center;margin-left: 420px;background-color: #DCDCDC;margin-top: 20px;">
+<div style="width: 600px;padding: 20px;text-align: center;margin-left: 335px;background-color: #DCDCDC;margin-top: 20px;">
 
 		    
-		    	<p style="font-family: sans-serif;font-size: 14.5px;margin-left: 0px;">By registering,you get access to bookfinder account<br> where you can:<br> <ul style="text-align: left;"> <li>Buy books </li><li>Sell used books</li><LI>Used shared book material</LI></ul> </p>
-		    	<hr>
-		    	<h2 style="font-size: 25px;margin-top: 0px;">Register here:</h1>
+		    	<p style="font-family: sans-serif;font-size: 14.5px;margin-left: -80px;font-weight: 550;">By registering,you get access to bookfinder account where you can:<br> <ul style="text-align: left;font-weight: 550"> <li>Buy old books </li><li>Sell used books</li><LI>Use shared book material</LI></ul> </p>
+		    	<hr style=" border: 1.5px solid #f1f1f1;margin-bottom: 15px;">
+		    	<h2 style="font-size: 25px;margin-top: 0px;text-shadow: 1px 0.5px 1px "><u>Register:</u></h2>
 
+		    	<div style="margin-bottom: -37px;">
+		    	<button onclick="document.getElementById('click').style.display='block'" class="enlarge" style="width:auto;padding: 10px;border-radius: 5px;border: 2px solid grey;margin-bottom:0px;outline: none;margin-left: -517px;font-weight: 600">Click here</button>
+		    	</div>
+		    	
+				
+		    	
+		<div id="click" class="modal">	
 
-            <form action="insert.php" method="post" name="Regform" onsubmit="return checkform()" style="margin-top: 0px;" >
+			<div class="clearfix">
+        		<button type="button" onclick="document.getElementById('click').style.display='none'" class="collapse">Cancel</button>
+     		    </div>
 
-	           <input type="text" name="firstname" placeholder="FirstName" ><br>
+			 
 
-               <input type="text" name="lastname" placeholder="LastName"><br>
-	
-	           <input type="text" name="number" placeholder="Phone No." ><br>
-       
-               <input type="text" name="location" placeholder="Location" ><br>	
-	
-	           <input type="text" name="email" placeholder="Email"><br>
-	
-               <input type="text" name="username" placeholder="Username" ><br>
-		
-               <input type="password" name="password" placeholder="Password" ><br>
+            <form action="insert.php" method="post" name="Regform"  style="margin-left: 0px;" onsubmit="return checkform(this);">
 
+            	<label for="firstname" style="font-size: 17px;margin-right: 87px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ;">Firstname: <sup style="color: red;">*</sup></label>
+	           <input type="text" name="firstname" placeholder="Enter firstname... " ><br>
+
+	           <label for="lastname" style="font-size: 17px;margin-right: 99px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Lastname:</label>
+               <input type="text" name="lastname" placeholder="Enter lastname..."><br>
+				
+				<label for="number" style="font-size: 17px;margin-right: 87px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Phone No: <sup style="color: red;">*</sup></label>
+	           <input type="text" name="number" placeholder="Enter phone number..." ><br>
+       			
+       			<label for="Location" style="font-size: 17px;margin-right: 97px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Location: <sup style="color: red;">*</sup></label>
+               <input type="text" name="location" placeholder="Enter location..." ><br>	
+				
+				<label for="email" style="font-size: 17px;margin-right: 119px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Email: <sup style="color: red;">*</sup></label>
+	           <input type="text" name="email" placeholder="Enter email..."><br>
+
+				<label for="username" style="font-size: 17px;margin-right: 85px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Username: <sup style="color: red;">*</sup></label>
+               <input type="text" name="username" placeholder="Enter username..." ><br>
+				
+				<label for="password"  style="font-size: 17px;margin-right: 88px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Password: <sup style="color: red;">*</sup></label>
+               <input type="password" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password" placeholder="Enter password..." ><br>
+
+				<label for="confirm_password" style="font-size: 17px;margin-right: 25px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Confirm Password: <sup style="color: red;">*</sup></label>
+               <input type="password" onkeyup="checkForm();return false;" name="confirm_password" placeholder="Enter password again..." ><br>
+
+				<span id="confirmMessage" class="confirmMessage"></span>
+
+               <label for="gender" style="font-size: 17px;margin-right: 230px;font-family: Arial, Helvetica, sans-serif;text-shadow: 1px 0.5px 1px  ">Gender:</label>
               <input type="radio" name="gender" value="Male" style="margin-left: 0px;"><b style="font-family: sans-serif;font-size: 17px;">Male</b>
 
-              <input type="radio" name="gender" value="Female" style="margin-left: 100px;"><b style="font-family: sans-serif;font-size: 17px;margin-: 0px;">Female</b><br>
+              <input type="radio" name="gender" value="Female" style="margin-left: 80px;"><b style="font-family: sans-serif;font-size: 17px;margin-: 0px;">Female</b><br>
 
-	          <input type="submit" value="Submit" style="padding: 8px 18px; margin-top: 15px;margin-right: 10px;">
+              <p style="margin-left: -135px;margin-top: 20px;margin-bottom: 10px; text-shadow: 1px 0.5px 1px">By creating an account you agree to our <a href="" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
-	           <h3 style="margin-bottom: 5px;">Already have an account?</h3>
-	           <a href="Login.php">Login</a>
+	          <input type="submit"  value="Submit"  style="padding: 8px 18px; margin-top: 15px;margin-right: 10px; font-weight: 600;">
+
+	         
 	
    		    </form> 
-    </div>
+
+   	</div>
+
+   		<div style="height: 70px;background-color: #A9A9A9 ;text-align: center;padding: 10px;margin-top: 38px;">
+	           <h3 style="margin-bottom: 15px; margin-top: 10px;">Already have an account?</h3>
+	           <a href="Login.php" class="loginbtn" style="font-weight: 600;font-size: 17px;">Login</a>
+	       	</div>
+
+
+<script>
+
+var modal = document.getElementById('click');
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+ 		
+</div>
+
 
     <footer style="background-color: #333;margin-bottom: 0px; margin-left: 0px;margin-right: 0px; width: 100%;height: 100px;">
  

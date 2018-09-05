@@ -1,39 +1,36 @@
 <?php
 
- define('DB_SERVER', 'localhost');
+   define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', '');
    define('DB_DATABASE', 'bookfinder');
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-   
    session_start();
+   
    if($_SERVER["REQUEST_METHOD"]=="POST")
    {
+    var_dump($_SESSION['login_error']);
    	$username=mysqli_real_escape_string($db,$_POST['username']);
    	$password=mysqli_real_escape_string($db,$_POST['password']);
-   	$sql="Select id from profile where username='$username' and password='$password'";
+   	$sql="Select * from profile where username='$username' and password='$password'";
    	$result=mysqli_query($db,$sql);
    	$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-   	$active=$row['active'];
+   	$active=$row['firstname'];
    	$count=mysqli_num_rows($result);
    	if($count==1)
    	{
-   		
-   		$_SESSION['username']="username";
-   		header("location: Activity1.php");
+   		$_SESSION['username']="$username";
+   		$_SESSION['firstname']="$active";
+   		header("location: Welcome.php");
    	}
-   	else{
-           
-            $message="Your username or password is invalid.";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-           
-             header("location:login.php");
-   			
-   		}
-   	
+   	else {
+   	    $_SESSION['login_error']='Invalid username or password!';
+
+         header("location:login.php");
+
+    }
+
    }
-
-
 
 ?>
 
@@ -51,64 +48,90 @@
     var password= document.forms["loginform"]["password"].value;
     if (name == "") {
         alert("Username field cannot be empty.");
+        
         return false;
         }
         else if(password=="")
         {
           alert ("Password field cannot be empty.");
+          
           return false;
         }
     }
     </script>
+  <style>
+    
+  .loginbtn:hover{
+   background: red;
+
+  }
+  a:hover{
+    color: red;
+  }
+  input[type=submit]:hover{
+   background: #A9A9A9;
+  }
+  </style>
+
 </head>
 
-<body style="background-color: #F0F0F0";>
+<body style="background-color: #F0F0F0;margin: 0px;">
+	 
+<div id="header" style="position: relative; background-color: #232f3e;height: 120px;width: 100%;margin-top: -40px;">
 
-	<div class="header" style="background-color: #232f3e; height: 120px;width: 100%;margin-top: ;">
-		<div style="width: 380px;height: 100px;float: left;">
-		  <a href="MainActivity.html"><img src="round.png" alt="Logo" style="">
-		  </a>
-	    </div>
+    <div id="logo" style=" float: left;width: 380px; ">
+    <a href="MainActivity.html">
 
-		<div id="discription" style="position: relative;width: 900px; margin-right: -100px;">
-          <h1 style="margin-top: 0px;color: white;font-size: 60px;margin-left: 0px;margin-bottom: 0px;">BOOK FINDER</h1>	
-          <p style="color: white;font-size: 20px;margin-top: 0px;margin-left: 0px;text-align: right;">An Online bookstore for buying and selling</p>		
+            <img src="Bimage/round.png" style="margin-left: -15px;">
+    </a>
+    </div>
 
-			
-		</div>
+    <div id="discription" style="width: 900px; margin-right: 0px;margin-left: 150px;">
 
-		<div id="nav-right" style="position: relative; float: right; margin-top: -105px;margin-right: 20px;" >
-			<div style="margin-right: 30px;">
-				 <a href="login.php" style="color: white">
-					<h3 style="color: white;">Login</h3>
-				  </a>
-			</div>
+        <h1 style="color: white;font-size: 60px;margin-left: 0px;margin-bottom: 0px;;">BOOK FINDER</h1>
+        <p style="float:left;color: white;font-size: 24px;margin-top: 0px;margin-left: 170px;text-align: right;">An Online bookstore for buying and selling</p>
+    </div>
 
-			<div style="margin-right: 30px;">
-				<a href="Registration.html" style="color: white;"> 
-				    <h3 style="margin-top: 5px;margin-right: 20px;color: white;">Signup</h3>
-			        </a>
-				
-				
-			</div>
+    <div id="nav-right" style="position: relative; float: right;margin-top: -62px;margin-right: 30px;">
+        <div class="nav-button" style="margin-right: 30px;">
+            <a href="login.php" style="color: white" class="link">
+                <h3 style="color: white;font-family:Aerial,sans-serif;font-weight: 400;font-size: 20px;">Login</h3>
+            </a>
+        </div>
 
-			
-		</div>	
+        <div class="nav-button" style="margin-right: 30px;">
+            <a href="Registration.html" style="color: white;" class="link">
+                <h3 style="margin-top: 5px; color: white;font-size: 20px;font-weight: 400;font-family: Aerial,sans-serif">Signup</h3>
+            </a>
+        </div>
+        
+    </div>
 
-	</div>
+</div>
 
-	<div id="box2">
+		
 
-	    <h1 style="margin-top: -20px; margin-bottom: 10px;"><u> Login</u></h1>
+	<div id="box2" style="box-shadow: 0px 2px 35px 10px #888888;z-index: 10;margin-top: 100px;">
+
+	    <h1 style="margin-top: 30px; margin-bottom: 10px;"><u> Login</u></h1>
 
 		<form action="" method="POST" name="loginform" onsubmit="return validateForm()" >
-		
+
 			<h3 style="margin-top: 30px; margin-bottom: 5px;">Username</h3>
-			<input type="text" name="username" style="padding: 6px;width: 250px;" >
+			<input type="text" name="username" style="padding: 6px;width: 250px;outline: none;" >
 			<h3 style="margin-bottom: 5px;">Password</h3>
 
-			<input type="password" name="password" id="loginpass" style="margin-bottom: 8px; padding: 6px;width: 250px;"><br>
-			<input type="checkbox" onclick="myFunction()">Show Password <br>
+			<input type="password" name="password" id="loginpass" style="margin-bottom: 8px; padding: 6px;width: 250px;outline: none;"><br>
+
+			<input type="checkbox" name="checkbox" onclick="myFunction()"><label for="checkbox" style=" font-family:Georgia">Show Password</label> <br><br>
+
+            <span style="color: red;margin-top: -5px;">
+                <?php if (isset($_SESSION['login_error']))
+                {
+                   echo $_SESSION['login_error'];
+
+                }
+                ?></span>
        <script>
                 function myFunction() {
                 var x = document.getElementById("loginpass");
@@ -119,25 +142,34 @@
                          }
                      }
        </script>
+                   <br>
+       <p style="font-family: Georgia">By logging in, you accept to our <a href="" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      
+			<input type="submit" name="Submit" value="Submit" style="margin-top: 10px;padding: 6px 10px;font-size: 15px;border: 2px solid silver;outline: none;font-weight: 550">
+      <hr style="margin-bottom: 1px">
 
-			<input type="submit" name="Submit" value="submit" style="margin-top: 30px;padding: 6px 10px;font-size: 15px;border: 2px solid silver;">
-			<h3 style="margin-bottom: 5px;margin-top: 30px;">Not a member? </h3>
-			<a href="Registration.html" type="button" style="margin-bottom: 0px;">SignUp</a>
-		
+      <div style="background-color: #778899;height: 80px">
+        <hr style="visibility: hidden;margin-top: 0px;">
+			<h3 style="margin-bottom: 5px;margin-top: 20px;">Not a member? </h3>
+			<a href="Registration.html" type="button" style=" font-weight: 550;margin-bottom: 25px;">SignUp</a>
+          <hr style="visibility: hidden;margin-top: 0px;">
+      </div>
+
 		</form>
 
 
     </div>
+   
     	
    
              
-   <footer style="background-color: #333;margin-bottom: 0px; margin-left: 0px;margin-right: 0px; width: 100%;height: 100px;margin-top: 400px;">
+   <footer style="background-color: #333;margin-bottom: 0px; margin-left: 0px;margin-right: 0px; width: 100%;height: 100px;margin-top: 0px;">
 
 
 	<div id="copyright" style=" ">
              	        
 
-             	        <p style="text-align: center; margin-left: 20px; color: white;margin-top: 450px;">&copy BookFinder Pvt.Ltd</p>
+             	        <p style="text-align: center; margin-left: 20px; color: white;margin-top: 100px;">&copy BookFinder Pvt.Ltd</p>
     </div> 
 
 
