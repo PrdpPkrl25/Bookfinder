@@ -71,6 +71,14 @@
   input[type=submit]:hover{
    background: #A9A9A9;
   }
+
+  .fa{
+      margin-left: 12px;
+  }
+  .fa:hover{
+      color: blue;
+      opacity: 0.7;
+  }
   </style>
 
 </head>
@@ -92,16 +100,16 @@
         <p style="float:left;color: white;font-size: 24px;margin-top: 0px;margin-left: 170px;text-align: right;">An Online bookstore for buying and selling</p>
     </div>
 
-    <div id="nav-right" style="position: relative; float: right;margin-top: -62px;margin-right: 30px;">
+    <div id="nav-right" style="position: relative; float: right;margin-top: -68px;margin-right: 30px;">
         <div class="nav-button" style="margin-right: 30px;">
-            <a href="login.php" style="color: white" class="link">
-                <h3 style="color: white;font-family:Aerial,sans-serif;font-weight: 400;font-size: 20px;">Login</h3>
+            <a href="login.php" style="color: white;text-decoration: none" class="link">
+                <h3 style="color: white;font-family:'Times New Roman';font-weight: 400;font-size: 22px;">Login</h3>
             </a>
         </div>
 
         <div class="nav-button" style="margin-right: 30px;">
-            <a href="Registration.html" style="color: white;" class="link">
-                <h3 style="margin-top: 5px; color: white;font-size: 20px;font-weight: 400;font-family: Aerial,sans-serif">Signup</h3>
+            <a href="Registration.html" style="color: white;text-decoration: none" class="link">
+                <h3 style="margin-top: 5px; color: white;font-size: 22px;font-weight: 400;font-family: 'Times New Roman'">Signup</h3>
             </a>
         </div>
         
@@ -111,7 +119,7 @@
 
 		
 
-	<div id="box2" style="box-shadow: 0px 2px 35px 10px #888888;z-index: 10;margin-top: 100px;">
+	<div id="box2" style="box-shadow: 0px 2px 35px 10px #888888;z-index: 10;margin-top: 100px;margin-left: 490px;">
 
 	    <h1 style="margin-top: 30px; margin-bottom: 10px;"><u> Login</u></h1>
 
@@ -159,41 +167,33 @@
 
 
     </div>
-   
-    	
-   
-             
-   <footer style="background-color: #333;margin-bottom: 0px; margin-left: 0px;margin-right: 0px; width: 100%;height: 100px;margin-top: 0px;">
-
-
-	<div id="copyright" style=" ">
-             	        
-
-             	        <p style="text-align: center; margin-left: 20px; color: white;margin-top: 100px;">&copy BookFinder Pvt.Ltd</p>
-    </div> 
 
 
 
-   	<div id="box5" class="division" style="margin-top:-28px; ;margin-right:0px;margin-left: 980px; ">
 
-			    		<h3 style="margin-bottom: 3px;color: white;"><u><b>Find us</b></u></h3>
+<footer style="font-family:Aerial,sans-serif;background-color: #131a22; margin-left: 0px; width: 100%;height: 140px;margin-bottom: 0px;margin-top: 120px;">
 
-			                <address style="font-family: sans-serif;margin-top: 0px; color: white;"> 
-			                	Email :Beebakelam@gmail.com<br>
-			                	Phone No: 7358685574<br>
-			                    Address: Kathmandu,Nepal
-			                </address>
-			    		    		    		
-	</div>
+    <div style="margin-left: 30px;position: absolute;margin-top: 20px">
+        <h3 style="margin-bottom: 3px;color: white;line-height: 220%;margin-left: 10px;"><u><b>Connect with us:</b></u></h3>
+        <a href="#" style="color: white"><i class="fa fa-instagram"></i></a>
+        <a href="#" style="color: white"><i class="fa fa-twitter"></i></a>
+        <a href="#" style="color: white"><i class="fa fa-linkedin"></i></a>
+        <a href="#" style="color: white"><i class="fa fa-facebook"></i></a>
+    </div>
 
-   
-             
+    <div id="copyright" style=" ">
+        <p style="position:absolute;text-align: center;margin-left: 590px;color: white;margin-top: 110px;">&copy BookFinder Pvt.Ltd</p>
+    </div>
 
+    <div id="box5" class="division" style="float: right;margin-top:-10px;margin-right: 40px; ">
 
- 
- 
-
-	
+        <h3 style="margin-bottom: 3px;color: white;line-height: 220%"><u><b>Contact us:</b></u></h3>
+        <address style="font-family: sans-serif;margin-top: 3px; color: white;line-height: 150%">
+            Email :BookfinderOfficial@gmail.com<br>
+            Phone No: +9779803889708<br>
+            Address: Kathmandu,Nepal
+        </address>
+    </div>
 </footer>
              
          
